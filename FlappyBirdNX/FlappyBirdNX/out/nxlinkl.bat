@@ -1,0 +1,1 @@
+nxlink -s -a 192.168.1.39 Homebrew_Template.nro
