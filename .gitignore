@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# Folders
+FlappyBirdNX/[Dd]ebug
+FlappyBirdNX/.[Vv]s
+FlappyBirdNX/[Vv]s
+FlappyBirdNX/FlappyBirdNX/[Dd]ebug
+FlappyBirdNX/FlappyBirdNX/[Oo]ut
+FlappyBirdNX/FlappyBirdNX/[Bb]uild

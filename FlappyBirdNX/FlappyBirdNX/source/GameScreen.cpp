@@ -168,7 +168,7 @@ void GameScreen::Update()
 
 			if (m_gameTimer >= this->m_secondsToJump)
 			{
-				this->m_bird->StopJump();
+				//this->m_bird->StopJump();
 				this->m_canJump = true;
 			}
 
@@ -215,33 +215,27 @@ void GameScreen::CheckInputs(u64 kDown, u64 kHeld, u64 kUp)
 	}
 	else if (this->m_gameStarted)
 	{
-		if (kHeld & KEY_TOUCH)
+		if (kHeld & KEY_TOUCH || kDown & KEY_A)
 		{
-			u32 i;
-			hidTouchRead(&this->touch, i);
-			if (this->m_buttonMenu->IsPressed(&touch))
-			{
-				//
-			}
+			this->m_bird->Jump();
 		}
-		else if (kUp & KEY_TOUCH)
-		{
-			if (this->m_buttonMenu->GetPressed())
-			{
-				this->m_changeScene = true;
-				return;
-			}
-			else
-			{
-				if (this->m_canJump)
-					this->m_bird->Jump();
-			}		
-		}	
+	}
 
-		if (kDown & KEY_A)
+	if (kHeld & KEY_TOUCH)
+	{
+		u32 i;
+		hidTouchRead(&this->touch, i);
+		if (this->m_buttonMenu->IsPressed(&touch))
 		{
-			if (this->m_canJump)
-				this->m_bird->Jump();
+			//
+		}
+	}
+	else if (kUp & KEY_TOUCH)
+	{
+		if (this->m_buttonMenu->GetPressed())
+		{
+			this->m_changeScene = true;
+			return;
 		}
 	}
 
