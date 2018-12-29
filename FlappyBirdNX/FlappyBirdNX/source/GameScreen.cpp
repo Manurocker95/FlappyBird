@@ -22,11 +22,14 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 #include "SceneManager.hpp"
 #include "Filepaths.h"
 #include "Colors.h"
+#include <random>
+#include <ctime>
 
 GameScreen::GameScreen(Settings * _settings) : Scene(_settings)
 {
 	this->m_settings = _settings;
 	this->m_changeScene = false;
+	this->m_timeJumping = _settings->m_timeJumping;
 	this->m_score = 0;
 	this->m_gameTimer = 0;
 	this->m_secondsToStart = _settings->m_secondsToStart;
@@ -34,6 +37,9 @@ GameScreen::GameScreen(Settings * _settings) : Scene(_settings)
 	this->m_gameStarted = false;
 	this->m_showingTutorial = true;
 	this->m_gameOver = false;
+	this->m_lastTimeJumping = 0;
+	this->m_lastTime = 0;
+	this->m_numberOfTubes = _settings->m_numberOfTubes;
 }
 
 GameScreen::~GameScreen()
@@ -76,6 +82,18 @@ GameScreen::~GameScreen()
 	
 	this->m_buttonMenu->End(this->m_helper);
 	delete(this->m_buttonMenu);
+
+	this->m_scoreSFX->End(this->m_helper);
+	delete(this->m_scoreSFX);
+
+	this->m_jumpSFX->End(this->m_helper);
+	delete(this->m_jumpSFX);
+
+	for (auto & tube : this->m_tubes)
+	{
+		tube->End(this->m_helper);
+		delete(tube);
+	}
 }
 
 void GameScreen::Start(SDL_Helper * helper)
@@ -84,7 +102,7 @@ void GameScreen::Start(SDL_Helper * helper)
 	this->m_background = new Sprite(0, 0, helper, IMG_BACKGROUND, 1, 1, SWITCH_SCREEN_WIDTH, SWITCH_SCREEN_HEIGHT, 0, 0, false, false, 1);
 	this->m_background2 = new Sprite(SWITCH_SCREEN_WIDTH, 0, helper, IMG_BACKGROUND, 1, 1, SWITCH_SCREEN_WIDTH, SWITCH_SCREEN_HEIGHT, 0, 0, false, false, 1);
 
-	this->m_getReadySprite = new Sprite(350, 350, helper, IMG_GET_READY, 1, 1, 368, 100, 0, 0, false, false, 1);
+	this->m_getReadySprite = new Sprite(450, 350, helper, IMG_GET_READY, 1, 1, 368, 100, 0, 0, false, false, 1);
 	this->m_gameOverSprite = new Sprite(450, 150, helper, IMG_GAME_OVER, 1, 1, 452, 325, 0, 0, false, false, 1);
 
 	this->m_tutorialSprite = new Sprite(450, 200, helper, IMG_TUTORIAL, 1, 1, 456, 392, 0, 0, false, false, 1);
@@ -97,9 +115,26 @@ void GameScreen::Start(SDL_Helper * helper)
 
 	this->m_buttonMenu = new Button(60, 60, helper, IMG_BTN_MENU, IMG_BTN_MENU_NOT_INTERACTABLE, IMG_BTN_MENU_PRESSED, true, false, 1, 1, 160, 56, false, 0, 0);
 
-	this->m_bird = new Bird(430, 350, helper, IMG_BIRD, 167, 147, this->m_settings);
+	this->m_bird = new Bird(530, 350, helper, IMG_BIRD, 167, 147, this->m_settings);
 
 	this->m_buttonTapSFX = new SfxSound(helper, SND_SFX_TAP, false, 2);
+	this->m_scoreSFX = new SfxSound(helper, SND_SFX_SCORE, false, 2);
+	this->m_jumpSFX = new SfxSound(helper, SND_SFX_JUMP, false, 2);
+
+	int upRnd = 0;
+	int space = this->m_settings->m_spaceBetweenTubes;
+	int _x = SWITCH_SCREEN_WIDTH ;
+	int _y = 0;
+	bool up = false;
+	for (int i = 0; i < this->m_numberOfTubes; i++)
+	{
+		upRnd = rand() % (100);
+		up = upRnd % 2 == 0;
+
+		_y = up ? rand() % (360) : rand() % 720 + 360;
+		this->m_tubes.push_back(new Tube(_x, _y, this->m_helper, IMG_TUBE, 52, 320, this->m_settings, up));
+	}
+
 	this->m_music = new MusicSound(helper, SND_BGM_TITLE, true, 1);
 	this->m_music->Play(helper);
 
@@ -113,15 +148,24 @@ void GameScreen::Draw()
 
 	if (!this->m_showingTutorial)
 	{
-		if (!this->m_gameOver)
+		if (this->m_gameStarted && !this->m_gameOver)
 		{
 			this->m_background2->Draw(this->m_helper);
 			this->m_bird->Draw(this->m_helper);
+			for (auto & tube : this->m_tubes)
+			{
+				tube->Draw(this->m_helper);
+			}
 			this->m_text->Draw(this->m_helper);
+			
 		}
 
 		if (!this->m_gameStarted)
+		{
+			this->m_bird->Draw(this->m_helper);
 			this->m_getReadySprite->Draw(this->m_helper);
+		}
+			
 	}
 	else
 	{
@@ -160,17 +204,20 @@ void GameScreen::Update()
 					return;
 				}
 			}
+
+			AddScore();
 		}
 
 		if (this->m_gameStarted && !this->m_gameOver)
 		{
-			++this->m_gameTimer;
-
-			if (m_gameTimer >= this->m_secondsToJump)
+			if (this->m_currentTime > this->m_lastTimeJumping + m_timeJumping)
 			{
-				//this->m_bird->StopJump();
+				this->m_lastTimeJumping = this->m_currentTime;
+
+				this->m_bird->StopJump();
 				this->m_canJump = true;
 			}
+
 
 			this->m_background->MoveX(-1);
 			if (this->m_background->GetX() <= -SWITCH_SCREEN_WIDTH)
@@ -190,6 +237,17 @@ void GameScreen::Update()
 			{
 				GameOver();
 			}
+
+			for (auto & tube : this->m_tubes)
+			{
+				tube->Update();
+				if (tube->CheckOverlap(m_bird))
+				{
+					GameOver();
+					break;
+				}
+			}
+
 		}
 	}
 
@@ -215,8 +273,13 @@ void GameScreen::CheckInputs(u64 kDown, u64 kHeld, u64 kUp)
 	}
 	else if (this->m_gameStarted)
 	{
-		if (kHeld & KEY_TOUCH || kDown & KEY_A)
+		if (kDown & KEY_TOUCH || kDown & KEY_A)
 		{
+			if (!this->m_muted)
+				m_jumpSFX->Play(this->m_helper);
+
+			this->m_gameTimer = 0;
+			this->m_canJump = false;
 			this->m_bird->Jump();
 		}
 	}
@@ -282,4 +345,13 @@ void GameScreen::GameOver()
 {
 	this->m_scoreText->SetText(std::to_string(this->m_score));
 	this->m_gameOver = true;
+}
+
+void GameScreen::AddScore()
+{
+	++this->m_score;
+	this->m_text->SetText(std::to_string(this->m_score));
+
+	if (!this->m_muted)
+		this->m_scoreSFX->Play(this->m_helper);
 }

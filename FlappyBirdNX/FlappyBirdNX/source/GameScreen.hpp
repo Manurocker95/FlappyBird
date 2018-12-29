@@ -29,20 +29,27 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 #include "Settings.hpp"
 #include "Bird.hpp"
 #include "Button.hpp"
+#include "Tube.hpp"
+#include <vector>
 
 class GameScreen : public Scene
 {
 private:
+	int m_timeJumping;
 	int m_score;
 	int m_secondsToStart;
 	int m_secondsToJump;
 	int m_gameTimer;
+	int m_numberOfTubes;
 	bool m_gameStarted;
 	bool m_showingTutorial;
 	bool m_gameOver;
 	bool m_canJump;
 	unsigned int m_currentTime;
 	unsigned int m_lastTime;
+	unsigned int m_lastTimeJumping;
+
+	std::vector<Tube*> m_tubes;
 
 private:
 	// Sprites
@@ -67,6 +74,8 @@ private:
 	// Music and SFX
 	MusicSound * m_music;
 	SfxSound * m_buttonTapSFX;
+	SfxSound * m_jumpSFX;
+	SfxSound * m_scoreSFX;
 
 public:
 
@@ -79,7 +88,7 @@ public:
 	void NextScene() override;
 	void ResetGame();
 	void GameOver();
-
+	void AddScore();
 };
 
 #endif

@@ -31,15 +31,16 @@ class Settings
 public:
 	
 	std::string m_projectName;
-
+	int m_timeJumping;
 	double m_version;
 	int m_loadingDelay;
 	int m_deltaTimeReduction;// HALF TIME -> SDL_TICKS/(100*reduction)
 
 	int m_secondsToStart;
 	int m_secondsToJump;
+	int m_spaceBetweenTubes;
 	int m_birdDisplacement;
-
+	int m_numberOfTubes;
 	bool m_debugMode;
 	bool m_muted;
 	bool m_paused;
@@ -52,11 +53,13 @@ public:
 		this->m_version = 1.0;
 		this->m_loadingDelay = 2;
 		this->m_deltaTimeReduction = 2;
-
+		this->m_timeJumping = 700;
 		this->m_birdDisplacement = 10;
 		this->m_secondsToStart = 3;
-		this->m_secondsToJump = 2;
+		this->m_secondsToJump = 1;
+		this->m_numberOfTubes = 5;
 		this->m_muted = false;
+		this->m_spaceBetweenTubes = 100;
 		this->m_debugMode = false;
 		this->m_paused = false;
 	}

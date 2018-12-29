@@ -38,6 +38,8 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 //SFX
 #define SND_SFX_TAP "romfs:/Assets/Audio/SFX/tap.wav"
 #define SND_SFX_SPLASH "romfs:/Assets/Audio/SFX/bbb.wav"
+#define SND_SFX_SCORE "romfs:/Assets/Audio/SFX/point.wav"
+#define SND_SFX_JUMP "romfs:/Assets/Audio/SFX/jump.wav"
 
 /* Images */
 // Backgrounds
@@ -49,9 +51,7 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 #define IMG_GET_READY "romfs:/Assets/Graphics/GetReady.png"
 #define IMG_GAME_OVER "romfs:/Assets/Graphics/gameOver.png"
 
-//CIRCLES
-#define IMG_RED_CIRCLE "romfs:/Assets/Graphics/RedCircle.png"
-#define IMG_BLUE_CIRCLE "romfs:/Assets/Graphics/BlueCircle.png"
+#define IMG_TUBE "romfs:/Assets/Graphics/tube.png"
 
 #define IMG_TOGGLE_SOUND "romfs:/Assets/Graphics/sound.png"
 #define IMG_TOGGLE_NO_SOUND "romfs:/Assets/Graphics/nosound.png"

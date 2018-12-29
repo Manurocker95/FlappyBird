@@ -46,11 +46,17 @@ void Bird::Update()
 
 	if (!this->m_jumping)
 	{
+		if (this->m_angle < 30)
+			this->m_angle += 1;
+
 		this->m_y += this->m_displacement;
 	}
 	else
 	{
-		this->m_y -= this->m_displacement * 2;
+		if (this->m_angle > -30)
+			this->m_angle -= 1;
+
+		this->m_y -= this->m_displacement;
 	}
 }
 

@@ -117,6 +117,7 @@
     <ClCompile Include="source\Text.cpp" />
     <ClCompile Include="source\TitleScreen.cpp" />
     <ClCompile Include="source\Toggle.cpp" />
+    <ClCompile Include="source\Tube.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bird.hpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="source\Text.hpp" />
     <ClInclude Include="source\TitleScreen.hpp" />
     <ClInclude Include="source\Toggle.hpp" />
+    <ClInclude Include="source\Tube.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
