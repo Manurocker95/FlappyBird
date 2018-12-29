@@ -62,6 +62,8 @@ public:
 	void ReadData();						// Method for reading data from our save
 	void SaveData(int _val);
 	void Exit();
+	int GetBestScore();
+	const char * GetBestScoreText();
 	const char * GetText(char * _key);
 	SDL_Helper * GetHelper();
 

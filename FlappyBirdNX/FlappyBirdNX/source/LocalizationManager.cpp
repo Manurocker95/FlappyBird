@@ -65,13 +65,13 @@ bool LocalizationManager::Initialized()
 void LocalizationManager::ParseTexts()
 {
 	this->m_gotSystemLanguage = true;
-	this->m_canParse = false;
+	this->m_canParse = true;
 	m_currentLanguage = std::string((char*)&this->m_languageCode);
 
 	std::ifstream langFile((std::string(LOCALIZATION_TEXT_FOLDER)+m_currentLanguage+std::string(".localization")).c_str());
+
 	if (langFile)
 	{
-		this->m_canParse = true;
 		langFile >> this->m_json;
 	}
 	else
@@ -80,8 +80,16 @@ void LocalizationManager::ParseTexts()
 
 		if (myReadFile)
 		{
-			this->m_canParse = true;
 			myReadFile >> this->m_json;
+		}
+		else
+		{
+			this->m_json =
+			{
+				{ "loadingText", "Loading..." },
+				{ "scoreText", "Score:" },
+				{ "bestScore", 0 },
+			};
 		}
 	}
 }

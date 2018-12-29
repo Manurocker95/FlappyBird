@@ -36,7 +36,9 @@ public:
 	int m_loadingDelay;
 	int m_deltaTimeReduction;// HALF TIME -> SDL_TICKS/(100*reduction)
 
-	int m_circleDisplacement;
+	int m_secondsToStart;
+	int m_secondsToJump;
+	int m_birdDisplacement;
 
 	bool m_debugMode;
 	bool m_muted;
@@ -46,13 +48,14 @@ public:
 
 	Settings() 
 	{
-		this->m_projectName = "Template NX";
+		this->m_projectName = "Flappy Bird NX";
 		this->m_version = 1.0;
 		this->m_loadingDelay = 2;
 		this->m_deltaTimeReduction = 2;
 
-		this->m_circleDisplacement = 10;
-
+		this->m_birdDisplacement = 10;
+		this->m_secondsToStart = 3;
+		this->m_secondsToJump = 2;
 		this->m_muted = false;
 		this->m_debugMode = false;
 		this->m_paused = false;

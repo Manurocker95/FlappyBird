@@ -17,6 +17,7 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 >    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 >    See LICENSE for information.
 */
+
 #pragma once
 #ifndef _GAME_SCREEN_HPP_
 #define _GAME_SCREEN_HPP_
@@ -24,28 +25,49 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 #include "Scene.hpp"
 #include "SfxSound.hpp"
 #include "MusicSound.hpp"
-#include "Circle.hpp"
 #include "Text.hpp"
 #include "Settings.hpp"
+#include "Bird.hpp"
+#include "Button.hpp"
 
 class GameScreen : public Scene
 {
 private:
-	Sprite * m_background;
+	int m_score;
+	int m_secondsToStart;
+	int m_secondsToJump;
+	int m_gameTimer;
+	bool m_gameStarted;
+	bool m_showingTutorial;
+	bool m_gameOver;
+	bool m_canJump;
+	unsigned int m_currentTime;
+	unsigned int m_lastTime;
 
-	// the player ;)
-	Circle * m_circle;
+private:
+	// Sprites
+	Sprite * m_background;
+	Sprite * m_background2;
+
+	Sprite * m_tutorialSprite;
+	Sprite * m_getReadySprite;
+	Sprite * m_gameOverSprite;
+
+	Bird * m_bird;
+
+	// Button
+	Button * m_buttonMenu;
 
 	// Text
 	Text * m_text;
+	Text * m_debugText;
+	Text * m_scoreText;
+	Text * m_bestScoreText;
 
 	// Music and SFX
 	MusicSound * m_music;
 	SfxSound * m_buttonTapSFX;
 
-private:
-	bool m_dragging;
-	int m_circleDisplacement;
 public:
 
 	GameScreen(Settings * _settings);									// Constructor
@@ -55,6 +77,8 @@ public:
 	void CheckInputs(u64 kDown, u64 kHeld, u64 kUp) override;			// CheckInput
 	void Update() override;												// Update
 	void NextScene() override;
+	void ResetGame();
+	void GameOver();
 
 };
 

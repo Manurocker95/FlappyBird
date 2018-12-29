@@ -57,11 +57,17 @@ public:
 	void SDL_LoadImage(SDL_Texture **texture, char *path);
 	void SDL_LoadImageBuf(SDL_Texture **texture, void *mem, int size);
 	void SDL_DrawImageOpacity(SDL_Texture *texture, int x, int y, int alpha);
+	void SDL_DrawImageRotatedOpacity(SDL_Texture *texture, int x, int y, int alpha, double angle, SDL_Point center, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	void SDL_DrawImageScaleOpacity(SDL_Texture *texture, int x, int y, int w, int h, int alpha);
+	void SDL_DrawImageRotatedScaleOpacity(SDL_Texture *texture, int x, int y, int w, int h, int alpha, double angle, SDL_Point center, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	void SDL_DrawImage(SDL_Texture *texture, int x, int y);
+	void SDL_DrawImageRotated(SDL_Texture *texture, int x, int y, double angle, SDL_Point center, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	void SDL_DrawImageRect(SDL_Texture * texture, int x, int y, int tex_x, int tex_y, int tex_w, int tex_h);
+	void SDL_DrawImageRotatedRect(SDL_Texture * texture, int x, int y, int tex_x, int tex_y, int tex_w, int tex_h, double angle, SDL_Point center, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	void SDL_DrawImageRectOpacity(SDL_Texture * texture, int x, int y, int tex_x, int tex_y, int tex_w, int tex_h, int opacity);
+	void SDL_DrawImageRotatedRectOpacity(SDL_Texture * texture, int x, int y, int tex_x, int tex_y, int tex_w, int tex_h, int opacity, double angle, SDL_Point center, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	void SDL_DrawImageScale(SDL_Texture *texture, int x, int y, int w, int h);
+	void SDL_DrawImageRotatedScale(SDL_Texture *texture, int x, int y, int w, int h, double angle, SDL_Point center, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	void SDL_Renderdisplay(void);
 	void SDL_DestroyTexture(SDL_Texture * texture);
 	void SDL_DestroyFont(FC_Font * font);

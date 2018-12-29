@@ -203,11 +203,26 @@ void SDL_Helper::SDL_DrawImage(SDL_Texture *texture, int x, int y)
 	SDL_RenderCopy(this->m_renderer, texture, NULL, &position);
 }
 
+void SDL_Helper::SDL_DrawImageRotated(SDL_Texture *texture, int x, int y, double angle, SDL_Point center, SDL_RendererFlip flip)
+{
+	SDL_Rect position;
+	position.x = x; position.y = y;
+	SDL_QueryTexture(texture, NULL, NULL, &position.w, &position.h);
+	SDL_RenderCopyEx(this->m_renderer, texture, NULL, &position, angle, &center, flip);
+}
+
 void SDL_Helper::SDL_DrawImageRect(SDL_Texture * texture, int x, int y, int tex_x, int tex_y, int tex_w, int tex_h)
 {
 	SDL_Rect srcrect = { tex_x, tex_y, tex_w, tex_h};
 	SDL_Rect dstrect = { x, y, tex_w, tex_h };
 	SDL_RenderCopy(this->m_renderer, texture, &srcrect, &dstrect);
+}
+
+void SDL_Helper::SDL_DrawImageRotatedRect(SDL_Texture * texture, int x, int y, int tex_x, int tex_y, int tex_w, int tex_h, double angle, SDL_Point center, SDL_RendererFlip flip)
+{
+	SDL_Rect srcrect = { tex_x, tex_y, tex_w, tex_h};
+	SDL_Rect dstrect = { x, y, tex_w, tex_h };
+	SDL_RenderCopyEx(this->m_renderer, texture, &srcrect, &dstrect, angle, &center, flip);
 }
 
 void SDL_Helper::SDL_DrawImageRectOpacity(SDL_Texture * texture, int x, int y, int tex_x, int tex_y, int tex_w, int tex_h, int opacity)
@@ -216,11 +231,24 @@ void SDL_Helper::SDL_DrawImageRectOpacity(SDL_Texture * texture, int x, int y, i
 	SDL_DrawImageRect(texture, x, y, tex_x, tex_y, tex_w, tex_h);
 }
 
+void SDL_Helper::SDL_DrawImageRotatedRectOpacity(SDL_Texture * texture, int x, int y, int tex_x, int tex_y, int tex_w, int tex_h, int opacity, double angle, SDL_Point center, SDL_RendererFlip flip)
+{
+	SDL_SetTextureAlphaMod(texture, opacity);
+	SDL_DrawImageRotatedRect(texture, x, y, tex_x, tex_y, tex_w, tex_h, angle, center, flip);
+}
+
 void SDL_Helper::SDL_DrawImageScale(SDL_Texture *texture, int x, int y, int w, int h) 
 {
 	SDL_Rect position;
 	position.x = x; position.y = y; position.w = w; position.h = h;
 	SDL_RenderCopy(this->m_renderer, texture, NULL, &position);
+}
+
+void SDL_Helper::SDL_DrawImageRotatedScale(SDL_Texture *texture, int x, int y, int w, int h, double angle, SDL_Point center, SDL_RendererFlip flip)
+{
+	SDL_Rect position;
+	position.x = x; position.y = y; position.w = w; position.h = h;
+	SDL_RenderCopyEx(this->m_renderer, texture, NULL, &position, angle, &center, flip);
 }
 
 void SDL_Helper::SDL_Renderdisplay(void) 
@@ -234,10 +262,22 @@ void SDL_Helper::SDL_DrawImageOpacity(SDL_Texture *texture, int x, int y, int op
 	SDL_DrawImage(texture, x, y);
 }
 
+void SDL_Helper::SDL_DrawImageRotatedOpacity(SDL_Texture *texture, int x, int y, int opacity, double angle, SDL_Point center, SDL_RendererFlip flip)
+{
+	SDL_SetTextureAlphaMod(texture, opacity);
+	SDL_DrawImageRotated(texture, x, y, angle, center, flip);
+}
+
 void SDL_Helper::SDL_DrawImageScaleOpacity(SDL_Texture *texture, int x, int y, int w, int h, int opacity)
 {
 	SDL_SetTextureAlphaMod(texture, opacity);
 	SDL_DrawImageScale(texture, x, y, w, h);
+}
+
+void SDL_Helper::SDL_DrawImageRotatedScaleOpacity(SDL_Texture *texture, int x, int y, int w, int h, int opacity, double angle, SDL_Point center, SDL_RendererFlip flip)
+{
+	SDL_SetTextureAlphaMod(texture, opacity);
+	SDL_DrawImageRotatedScale(texture, x, y, w, h, angle, center, flip);
 }
 
 void SDL_Helper::SDL_DestroyTexture(SDL_Texture * texture)

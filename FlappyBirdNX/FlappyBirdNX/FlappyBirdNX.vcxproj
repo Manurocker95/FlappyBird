@@ -97,8 +97,8 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Bird.cpp" />
     <ClCompile Include="source\Button.cpp" />
-    <ClCompile Include="source\Circle.cpp" />
     <ClCompile Include="source\GameScreen.cpp" />
     <ClCompile Include="source\IntroScreen.cpp" />
     <ClCompile Include="source\LoadingScreen.cpp" />
@@ -119,8 +119,8 @@
     <ClCompile Include="source\Toggle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\Bird.hpp" />
     <ClInclude Include="source\Button.hpp" />
-    <ClInclude Include="source\Circle.hpp" />
     <ClInclude Include="source\Colors.h" />
     <ClInclude Include="source\Filepaths.h" />
     <ClInclude Include="source\GameScreen.hpp" />
@@ -145,6 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
+    <None Include="romfs\Assets\Files\en.localization" />
+    <None Include="romfs\Assets\Files\es.localization" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

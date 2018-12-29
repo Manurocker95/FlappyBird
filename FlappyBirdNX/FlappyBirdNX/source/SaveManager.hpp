@@ -44,6 +44,6 @@ public:
 
 	void ParseData();
 	void Save(int _score);
-
+	int GetBestScore();
 };
 #endif

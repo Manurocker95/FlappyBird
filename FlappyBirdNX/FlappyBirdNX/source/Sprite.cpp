@@ -22,7 +22,7 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 #include "Filepaths.h"
 #include "Settings.hpp"
 
-Sprite::Sprite(int _x, int _y, SDL_Helper * _helper, char * _sprite, int _numFramesX, int _numFramesY, int _sizePerFrameX, int _sizePerFrameY, int _currentFrameX, int _currentFrameY, bool _multipleFrames, bool _animated, int _deltaTimeReduction, bool _drawOpacity, bool _draggable, int _ox, int _oy)
+Sprite::Sprite(int _x, int _y, SDL_Helper * _helper, char * _sprite, int _numFramesX, int _numFramesY, int _sizePerFrameX, int _sizePerFrameY, int _currentFrameX, int _currentFrameY, bool _multipleFrames, bool _animated, int _deltaTimeReduction, bool _drawOpacity, bool _draggable, int _ox, int _oy, bool _limitedInScreen)
 {
 	this->m_opacity = 255;
 	this->m_active = true;
@@ -43,6 +43,7 @@ Sprite::Sprite(int _x, int _y, SDL_Helper * _helper, char * _sprite, int _numFra
 	this->m_numFramesY = _numFramesY;
 	this->m_drawOpacity = _drawOpacity;
 	this->m_draggable = _draggable;
+	this->m_limitedInScreen = _limitedInScreen;
 	this->m_deltaTimeReduction = _deltaTimeReduction;
 	_helper->SDL_LoadImage(&this->m_sprite, _sprite);
 }
@@ -111,8 +112,15 @@ void Sprite::MoveX(int _value)
 	if (!this->m_active)
 		return;
 
-	if ((_value > 0 && this->m_x + _value <= SWITCH_SCREEN_WIDTH-this->m_sizePerFrameX) || (_value < 0 && this->m_x + _value >= 0))
+	if (this->m_limitedInScreen)
+	{
+		if ((_value > 0 && this->m_x + _value <= SWITCH_SCREEN_WIDTH - this->m_sizePerFrameX) || (_value < 0 && this->m_x + _value >= 0))
+			this->m_x += _value;
+	}
+	else
+	{
 		this->m_x += _value;
+	}
 }
 
 void Sprite::MoveY(int _value)
@@ -120,8 +128,15 @@ void Sprite::MoveY(int _value)
 	if (!this->m_active)
 		return;
 
-	if ((_value > 0 && this->m_y + _value <= SWITCH_SCREEN_HEIGHT - this->m_sizePerFrameY) || (_value < 0 && this->m_y + _value >= 0))
+	if (this->m_limitedInScreen)
+	{
+		if ((_value > 0 && this->m_y + _value <= SWITCH_SCREEN_HEIGHT - this->m_sizePerFrameY) || (_value < 0 && this->m_y + _value >= 0))
+			this->m_y += _value;
+	}
+	else
+	{
 		this->m_y += _value;
+	}
 }
 
 SDL_Texture * Sprite::GetSprite()
@@ -297,4 +312,14 @@ void  Sprite::OnDrop()
 		return;
 	}
 	this->m_dragging = false;
+}
+
+bool Sprite::IsLimited()
+{
+	return this->m_limitedInScreen;
+}
+
+void Sprite::SetIsLimited(bool _value)
+{
+	this->m_limitedInScreen = _value;
 }

@@ -61,7 +61,6 @@ int main(int argc, char* argv[])
 		}
 	}
 
-
 	plExit();
 	romfsExit();
 	SceneManager::Instance()->Exit();

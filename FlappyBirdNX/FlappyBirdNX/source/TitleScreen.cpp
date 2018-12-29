@@ -54,14 +54,14 @@ TitleScreen::~TitleScreen()
 void TitleScreen::Start(SDL_Helper * helper)
 {
 	this->m_helper = helper;
-	this->m_background = new Sprite(0, 0, helper, IMG_BACKGROUND, 1, 1, SWITCH_SCREEN_WIDTH, SWITCH_SCREEN_HEIGHT, 0, 0, false, false, 1);
-	this->m_logo = new Sprite(490, 70, helper, IMG_LOGO, 1, 1, 95, 95, 0, 0, false, false, 1);
+	this->m_background = new Sprite(0, 0, helper, IMG_BACKGROUND_TITLE, 1, 1, SWITCH_SCREEN_WIDTH, SWITCH_SCREEN_HEIGHT, 0, 0, false, false, 1);
+	this->m_logo = new Sprite(480, 100, helper, IMG_LOGO, 1, 1, 95, 95, 0, 0, false, false, 1);
 
-	this->m_soundToggle = new Toggle(!this->m_muted, 870, 380, this->m_helper, IMG_TOGGLE_SOUND, IMG_TOGGLE_NO_SOUND, true, false, 1, 1, 185, 185, false, 0, 0);
+	this->m_soundToggle = new Toggle(!this->m_muted, 30, 30, this->m_helper, IMG_TOGGLE_SOUND, IMG_TOGGLE_NO_SOUND, true, false, 1, 1, 125, 116, false, 0, 0);
 
-	this->m_creatorText = new Text(helper, "Manurocker95 (C) 2018", 525, 670, 15, true, FONT_NORMAL, C_BLACK);
+	this->m_playButton = new Button(545, 380, helper, IMG_BTN_PLAY, IMG_BTN_PLAY_NON_INTERACTABLE, IMG_BTN_PLAY_PRESSED, true, false, 1,1, 208, 116, false, 0, 0);
 
-	this->m_playButton = new Button(520, 380, helper, IMG_BTN_PLAY, IMG_BTN_PLAY_NON_INTERACTABLE, IMG_BTN_PLAY_PRESSED,true,false,1,1, 185, 185, false, 0, 0);
+	this->m_creatorText = new Text(helper, "Manurocker95 (C) 2018", 525, 670, 25, true, FONT_FLAPPY_2, C_BLACK);
 
 	this->m_buttonTapSFX = new SfxSound(this->m_helper, SND_SFX_TAP, false, 2);
 	this->m_music = new MusicSound(this->m_helper, SND_BGM_TITLE, true, 1);
@@ -82,9 +82,7 @@ void TitleScreen::Draw()
 
 	this->m_soundToggle->Draw(this->m_helper);
 
-	this->m_creatorText->Draw(this->m_helper);
-
-	
+	this->m_creatorText->Draw(this->m_helper);	
 }
 
 void TitleScreen::Update()
@@ -150,6 +148,6 @@ void TitleScreen::CheckInputs(u64 kDown, u64 kHeld, u64 kUp)
 // * We go to the next scene = GameScreen
 void TitleScreen::NextScene()
 {
-	SceneManager::Instance()->LoadScene(SceneManager::INTRO);
+	SceneManager::Instance()->LoadScene(SceneManager::GAME);
 }
 

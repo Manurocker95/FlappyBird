@@ -40,10 +40,10 @@ SceneManager * SceneManager::Instance()
 // Scene Manager Data initialization
 void SceneManager::Start(SDL_Helper * helper)
 {
-	this->m_saveManager = new SaveManager();
 	this->m_LocalizationManager = new LocalizationManager();
+	this->m_out = this->m_LocalizationManager->Initialized() ? false : true;
+	this->m_saveManager = new SaveManager();
 	this->m_helper = helper;
-	this->m_out = (this->m_LocalizationManager->Initialized()) ? false : true;
 	ReadData();
 }
 
@@ -156,4 +156,14 @@ void SceneManager::SaveData(int _value)
 const char * SceneManager::GetText(char * _key)
 {
 	return this->m_LocalizationManager->GetText(_key);
+}
+
+int SceneManager::GetBestScore()
+{
+	return this->m_saveManager->GetBestScore();
+}
+
+const char * SceneManager::GetBestScoreText()
+{
+	return std::string(GetText("scoreText") + std::string("  ") + std::to_string(GetBestScore())).c_str();
 }

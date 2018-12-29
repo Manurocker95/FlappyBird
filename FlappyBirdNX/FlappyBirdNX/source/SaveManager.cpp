@@ -78,3 +78,8 @@ void SaveManager::Save(int _score)
 	outfile << this->m_json;
 	outfile.close();
 }
+
+int SaveManager::GetBestScore()
+{
+	return this->m_data->m_bestScore;
+}

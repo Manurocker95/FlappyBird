@@ -24,12 +24,12 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 #define _FILEPATHS_HPP_
 
 /* Save data */
-#define DATA_FOLDER "sdmc:/switch/Manurocker95/Template/"
-#define DATA_FILE "sdmc:/switch/Manurocker95/Template/data.sav"
+#define DATA_FOLDER "sdmc:/switch/Manurocker95/FlappyBird/"
+#define DATA_FILE "sdmc:/switch/Manurocker95/FlappyBird/data.sav"
 
 /* Localization */
 #define LOCALIZATION_TEXT_FOLDER  "romfs:/Assets/Files/"
-#define LOCALIZATION_TEXT_FILE "romfs:/Assets/Files/english.localization"
+#define LOCALIZATION_TEXT_FILE "romfs:/Assets/Files/en.localization"
 
 /* Sounds */
 #define SND_BGM_GAME  "romfs:/Assets/Audio/Music/game.mp3"
@@ -42,6 +42,12 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 /* Images */
 // Backgrounds
 #define IMG_BACKGROUND "romfs:/Assets/Graphics/Background.png"
+#define IMG_BACKGROUND_TITLE "romfs:/Assets/Graphics/BackgroundTitle.png"
+
+#define IMG_TUTORIAL "romfs:/Assets/Graphics/tutorial.png"
+
+#define IMG_GET_READY "romfs:/Assets/Graphics/GetReady.png"
+#define IMG_GAME_OVER "romfs:/Assets/Graphics/gameOver.png"
 
 //CIRCLES
 #define IMG_RED_CIRCLE "romfs:/Assets/Graphics/RedCircle.png"
@@ -63,13 +69,18 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 #define IMG_BTN_PLAY_PRESSED "romfs:/Assets/Graphics/playBtnPressed.png" 
 #define IMG_BTN_PLAY_NON_INTERACTABLE "romfs:/Assets/Graphics/playBtnNonInteractable.png" 
 
+#define IMG_BTN_MENU "romfs:/Assets/Graphics/menuBtn.png" 
+#define IMG_BTN_MENU_PRESSED "romfs:/Assets/Graphics/menuBtnPressed.png" 
+#define IMG_BTN_MENU_NOT_INTERACTABLE "romfs:/Assets/Graphics/menuBtnNotInteractable.png" 
+
+#define IMG_BIRD "romfs:/Assets/Graphics/bird.png" 
+
 // Logo
 #define IMG_LOGO "romfs:/Assets/Graphics/Logo.png"
 
 /* Fonts */
 #define FONT_NORMAL "romfs:/Assets/Fonts/normal.ttf"
-#define FONT_PIXEL "romfs:/Assets/Fonts/Pixelated-12.sfn"
-#define FONT_FREESANS "romfs:/Assets/Fonts/FreeSans.ttf"
-#define FONT_BFF "romfs:/Assets/Fonts/fixedsys.bff"
+#define FONT_FLAPPY "romfs:/Assets/Fonts/FlappyBirdy.ttf"
+#define FONT_FLAPPY_2 "romfs:/Assets/Fonts/FlappyBird2.ttf"
 
 #endif

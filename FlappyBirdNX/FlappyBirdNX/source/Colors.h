@@ -24,4 +24,5 @@ Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 #define C_WHITE                 FC_MakeColor(255, 255, 255, 255)
 #define C_RED					FC_MakeColor(255, 0, 0, 255)
 #define C_BLUE                  FC_MakeColor(0, 0, 255, 255)
-#define C_GREEN					FC_MakeColor(0, 255, 0, 255))
+#define C_GREEN					FC_MakeColor(0, 255, 0, 255)
+#define C_ORANGE				FC_MakeColor(230, 158, 80, 255)

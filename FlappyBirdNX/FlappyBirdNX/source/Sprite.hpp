@@ -1,6 +1,4 @@
-/* This file is part of Manurocker95's Template!
-
-this is made for my tutorial: https://gbatemp.net/threads/tutorial-setting-up-visual-studio-2017-environment-for-nintendo-switch-homebrew-development.525977/#post-8439059
+/* This file is part of Flappy Bird!
 
 Copyright (C) 2018/2019 Manuel Rodríguez Matesanz
 >    This program is free software: you can redistribute it and/or modify
@@ -47,8 +45,9 @@ protected:
 	bool m_inLoop;
 	bool m_draggable;
 	bool m_dragging;
+	bool m_limitedInScreen;
 public:
-	Sprite(int _x, int _y, SDL_Helper * _helper, char * _sprite, int _numFramesX, int _numFramesY, int _sizePerFrameX, int _sizePerFrameY, int _currentFrameX, int _currentFrameY, bool _multipleFrames, bool _animated, int _deltaTimeReduction = 1, bool _opacityMode = false, bool _draggable = false, int _ox = 0, int _oy = 0);
+	Sprite(int _x, int _y, SDL_Helper * _helper, char * _sprite, int _numFramesX, int _numFramesY, int _sizePerFrameX, int _sizePerFrameY, int _currentFrameX, int _currentFrameY, bool _multipleFrames, bool _animated, int _deltaTimeReduction = 1, bool _opacityMode = false, bool _draggable = false, int _ox = 0, int _oy = 0, bool _limitedInScreen = false);
 	~Sprite() {};
 	virtual void MoveX(int _value);
 	virtual void MoveY(int _value);
@@ -84,7 +83,8 @@ public:
 	virtual bool IsAnimated();
 	virtual void SetOpacity(int _value);
 	virtual void SetOpacityMode(bool _value);
-
+	virtual bool IsLimited();
+	virtual void SetIsLimited(bool _value);
 	virtual bool CheckOverlap(Sprite * _other);
 
 	virtual void OnDrag(touchPosition * _pos);
