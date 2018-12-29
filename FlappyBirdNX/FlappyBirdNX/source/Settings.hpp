@@ -59,7 +59,7 @@ public:
 		this->m_secondsToJump = 1;
 		this->m_numberOfTubes = 5;
 		this->m_muted = false;
-		this->m_spaceBetweenTubes = 100;
+		this->m_spaceBetweenTubes = 256;
 		this->m_debugMode = false;
 		this->m_paused = false;
 	}

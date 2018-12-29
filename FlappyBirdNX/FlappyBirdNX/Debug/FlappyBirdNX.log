@@ -1,10 +1,4 @@
-﻿  LoadingScreen.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/LoadingScreen.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/LoadingScreen.cpp -o LoadingScreen.o 
-  Button.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/Button.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Button.cpp -o Button.o 
-  LocalizationManager.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/LocalizationManager.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/LocalizationManager.cpp -o LocalizationManager.o 
-  GameScreen.cpp
+﻿  GameScreen.cpp
   aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/GameScreen.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/GameScreen.cpp -o GameScreen.o 
   D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/GameScreen.cpp: In destructor 'GameScreen::~GameScreen()':
 D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/GameScreen.cpp(48,22): warning GEC9AB9D8: deleting object of polymorphic class type 'MusicSound' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
@@ -43,110 +37,10 @@ D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/GameScreen.cpp(9
 D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/GameScreen.cpp(95,14): warning GEC9AB9D8: deleting object of polymorphic class type 'Tube' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
      delete(tube);
                 ^
-  D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/GameScreen.cpp: In member function 'virtual void GameScreen::Start(SDL_Helper*)':
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/GameScreen.cpp(125,6): warning G7C671A4C: unused variable 'space' [-Wunused-variable]
-    int space = this->m_settings->m_spaceBetweenTubes;
-        ^~~~~
   D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/GameScreen.cpp: In member function 'virtual void GameScreen::CheckInputs(u64, u64, u64)':
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/GameScreen.cpp(290,15): warning GCDCAB7C7: 'i' may be used uninitialized in this function [-Wmaybe-uninitialized]
+D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/GameScreen.cpp(294,15): warning GCDCAB7C7: 'i' may be used uninitialized in this function [-Wmaybe-uninitialized]
      hidTouchRead(&this->touch, i);
      ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
-  Toggle.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/Toggle.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Toggle.cpp -o Toggle.o 
-  MusicSound.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/MusicSound.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/MusicSound.cpp -o MusicSound.o 
-  main.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/main.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/main.cpp -o main.o 
-  Sound.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/Sound.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Sound.cpp -o Sound.o 
-  SaveData.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/SaveData.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SaveData.cpp -o SaveData.o 
-  SplashScreen.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/SplashScreen.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SplashScreen.cpp -o SplashScreen.o 
-  D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SplashScreen.cpp: In destructor 'SplashScreen::~SplashScreen()':
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SplashScreen.cpp(38,23): warning GEC9AB9D8: deleting object of polymorphic class type 'Sprite' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete(this->m_splash);
-                         ^
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SplashScreen.cpp(41,20): warning GEC9AB9D8: deleting object of polymorphic class type 'SfxSound' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete(this->m_SFX);
-                      ^
-  Text.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/Text.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Text.cpp -o Text.o 
-  SaveManager.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/SaveManager.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SaveManager.cpp -o SaveManager.o 
-  Tube.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/Tube.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Tube.cpp -o Tube.o 
-  SceneManager.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/SceneManager.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SceneManager.cpp -o SceneManager.o 
-  D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SceneManager.cpp: In member function 'void SceneManager::SetActualScene(SceneManager::SCENES)':
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SceneManager.cpp(62,29): warning GEC9AB9D8: deleting object of polymorphic class type 'Scene' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete (this->m_actualScene);
-                               ^
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SceneManager.cpp(65,9): warning GB774866A: enumeration value 'LOADING' not handled in switch [-Wswitch]
-    switch (_scene)
-           ^
-  D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SceneManager.cpp: In member function 'void SceneManager::LoadScene(SceneManager::SCENES, int)':
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SceneManager.cpp(91,30): warning GEC9AB9D8: deleting object of polymorphic class type 'Scene' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-     delete (this->m_actualScene);
-                                ^
-  D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SceneManager.cpp: In member function 'void SceneManager::Exit()':
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SceneManager.cpp(140,28): warning GEC9AB9D8: deleting object of polymorphic class type 'Scene' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete(this->m_actualScene);
-                              ^
-  Sprite.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/Sprite.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Sprite.cpp -o Sprite.o 
-  D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Sprite.cpp: In member function 'virtual bool Sprite::Touched(touchPosition*)':
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Sprite.cpp(233,21): warning G2890A887: comparison of integer expressions of different signedness: 'u32' {aka 'unsigned int'} and 'int' [-Wsign-compare]
-    return (_touch->px > this->m_x && _touch->px < this->m_x + this->m_sizePerFrameX) && (_touch->py > this->m_y && _touch->py < this->m_y + this->m_sizePerFrameY);
-            ~~~~~~~~~~~^~~~~~~~~~~
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Sprite.cpp(233,47): warning G2890A887: comparison of integer expressions of different signedness: 'u32' {aka 'unsigned int'} and 'int' [-Wsign-compare]
-    return (_touch->px > this->m_x && _touch->px < this->m_x + this->m_sizePerFrameX) && (_touch->py > this->m_y && _touch->py < this->m_y + this->m_sizePerFrameY);
-                                      ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Sprite.cpp(233,99): warning G2890A887: comparison of integer expressions of different signedness: 'u32' {aka 'unsigned int'} and 'int' [-Wsign-compare]
-    return (_touch->px > this->m_x && _touch->px < this->m_x + this->m_sizePerFrameX) && (_touch->py > this->m_y && _touch->py < this->m_y + this->m_sizePerFrameY);
-                                                                                          ~~~~~~~~~~~^~~~~~~~~~~
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Sprite.cpp(233,125): warning G2890A887: comparison of integer expressions of different signedness: 'u32' {aka 'unsigned int'} and 'int' [-Wsign-compare]
-    return (_touch->px > this->m_x && _touch->px < this->m_x + this->m_sizePerFrameX) && (_touch->py > this->m_y && _touch->py < this->m_y + this->m_sizePerFrameY);
-                                                                                                                    ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  IntroScreen.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/IntroScreen.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/IntroScreen.cpp -o IntroScreen.o 
-  D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/IntroScreen.cpp: In destructor 'IntroScreen::~IntroScreen()':
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/IntroScreen.cpp(36,24): warning GEC9AB9D8: deleting object of polymorphic class type 'Sprite' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete(this->m_introBG);
-                          ^
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/IntroScreen.cpp(39,20): warning GEC9AB9D8: deleting object of polymorphic class type 'SfxSound' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete(this->m_SFX);
-                      ^
-  SDL_Helper.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/SDL_Helper.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SDL_Helper.cpp -o SDL_Helper.o 
-  TitleScreen.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/TitleScreen.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/TitleScreen.cpp -o TitleScreen.o 
-  D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/TitleScreen.cpp: In destructor 'TitleScreen::~TitleScreen()':
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/TitleScreen.cpp(36,22): warning GEC9AB9D8: deleting object of polymorphic class type 'MusicSound' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete(this->m_music);
-                        ^
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/TitleScreen.cpp(39,29): warning GEC9AB9D8: deleting object of polymorphic class type 'SfxSound' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete(this->m_buttonTapSFX);
-                               ^
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/TitleScreen.cpp(42,28): warning GEC9AB9D8: deleting object of polymorphic class type 'Button' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete(this-> m_playButton);
-                              ^
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/TitleScreen.cpp(45,27): warning GEC9AB9D8: deleting object of polymorphic class type 'Sprite' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete(this->m_background);
-                             ^
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/TitleScreen.cpp(48,21): warning GEC9AB9D8: deleting object of polymorphic class type 'Sprite' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
-    delete(this->m_logo);
-                       ^
-  D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/TitleScreen.cpp: In member function 'virtual void TitleScreen::CheckInputs(u64, u64, u64)':
-D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/TitleScreen.cpp(99,15): warning GCDCAB7C6: 'j' may be used uninitialized in this function [-Wmaybe-uninitialized]
-     hidTouchRead(&touch, j);
-     ~~~~~~~~~~~~^~~~~~~~~~~
-  SfxSound.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/SfxSound.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SfxSound.cpp -o SfxSound.o 
-  Bird.cpp
-  aarch64-none-elf-g++ -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/Bird.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -fno-rtti -fno-exceptions -std=gnu++17 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/Bird.cpp -o Bird.o 
-  SDL_FontCache.c
-  aarch64-none-elf-gcc -MMD -MP -MF /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build/SDL_FontCache.d -g -O3 -ffunction-sections -Wall -Wno-write-strings -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE  -DVERSION_MAJOR=1 -DVERSION_MINOR=0 -DVERSION_MICRO=0 `freetype-config --cflags` `sdl2-config --cflags` -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/include -I/opt/devkitpro/portlibs/switch/include -I/opt/devkitpro/libnx/include -I/d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/build -D__SWITCH__ -D_GNU_SOURCE=1 -c /d/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/SDL_FontCache.c -o SDL_FontCache.o 
   linking Flappy_Bird_NX.elf
   built ... Flappy_Bird_NX.nso
   built ... Flappy_Bird_NX.pfs0
@@ -165,7 +59,6 @@ D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/source/TitleScreen.cpp(
   Writing D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/romfs/Assets/Fonts/normal.ttf to RomFS image...
   Writing D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/romfs/Assets/Graphics/Background.png to RomFS image...
   Writing D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/romfs/Assets/Graphics/BackgroundTitle.png to RomFS image...
-  Writing D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/romfs/Assets/Graphics/FlappyBird.png to RomFS image...
   Writing D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/romfs/Assets/Graphics/GetReady.png to RomFS image...
   Writing D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/romfs/Assets/Graphics/Loading.png to RomFS image...
   Writing D:/Homebrews/Switch/FlappyBird/FlappyBirdNX/FlappyBirdNX/romfs/Assets/Graphics/Logo.png to RomFS image...

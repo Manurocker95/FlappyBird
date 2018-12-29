@@ -110,8 +110,8 @@ void GameScreen::Start(SDL_Helper * helper)
 	this->m_text = new Text(helper, "0", 635, 80, 85, true, FONT_FLAPPY_2, C_WHITE);
 	this->m_debugText = new Text(helper, "DEBUG MODE", 595, 670, 25, true, FONT_FLAPPY_2, C_BLUE);
 
-	this->m_scoreText = new Text(helper, "0", 635, 290, 35, true, FONT_FLAPPY_2, C_ORANGE);
-	this->m_bestScoreText = new Text(helper, std::to_string(SceneManager::Instance()->GetBestScore()), 635, 290, 35, true, FONT_FLAPPY_2, C_ORANGE);
+	this->m_scoreText = new Text(helper, "0", 735, 275, 35, true, FONT_FLAPPY_2, C_ORANGE);
+	this->m_bestScoreText = new Text(helper, std::to_string(SceneManager::Instance()->GetBestScore()), 735, 395, 35, true, FONT_FLAPPY_2, C_ORANGE);
 
 	this->m_buttonMenu = new Button(60, 60, helper, IMG_BTN_MENU, IMG_BTN_MENU_NOT_INTERACTABLE, IMG_BTN_MENU_PRESSED, true, false, 1, 1, 160, 56, false, 0, 0);
 
@@ -126,13 +126,15 @@ void GameScreen::Start(SDL_Helper * helper)
 	int _x = SWITCH_SCREEN_WIDTH ;
 	int _y = 0;
 	bool up = false;
+
 	for (int i = 0; i < this->m_numberOfTubes; i++)
 	{
 		upRnd = rand() % (100);
 		up = upRnd % 2 == 0;
 
-		_y = up ? rand() % (360) : rand() % 720 + 360;
-		this->m_tubes.push_back(new Tube(_x, _y, this->m_helper, IMG_TUBE, 52, 320, this->m_settings, up));
+		_y = up ? rand() % (360) - 360 : rand() % 720 + 360;
+		this->m_tubes.push_back(new Tube(_x, _y, this->m_helper, IMG_TUBE, 106, 320, this->m_settings, up));
+		_x += space;
 	}
 
 	this->m_music = new MusicSound(helper, SND_BGM_TITLE, true, 1);
@@ -145,12 +147,12 @@ void GameScreen::Start(SDL_Helper * helper)
 void GameScreen::Draw()
 {
 	this->m_background->Draw(this->m_helper);
+	this->m_background2->Draw(this->m_helper);
 
 	if (!this->m_showingTutorial)
 	{
 		if (this->m_gameStarted && !this->m_gameOver)
-		{
-			this->m_background2->Draw(this->m_helper);
+		{		
 			this->m_bird->Draw(this->m_helper);
 			for (auto & tube : this->m_tubes)
 			{
@@ -164,8 +166,7 @@ void GameScreen::Draw()
 		{
 			this->m_bird->Draw(this->m_helper);
 			this->m_getReadySprite->Draw(this->m_helper);
-		}
-			
+		}		
 	}
 	else
 	{
@@ -203,9 +204,12 @@ void GameScreen::Update()
 					this->m_gameStarted = true;
 					return;
 				}
+			}	
+			else
+			{
+				if (!this->m_gameOver)
+					AddScore();
 			}
-
-			AddScore();
 		}
 
 		if (this->m_gameStarted && !this->m_gameOver)
