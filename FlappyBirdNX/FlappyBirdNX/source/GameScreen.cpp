@@ -239,6 +239,9 @@ void GameScreen::Update()
 
 			if (this->m_bird->GetY() > SWITCH_SCREEN_HEIGHT)
 			{
+				if (!this->m_muted)
+					m_buttonTapSFX->Play(this->m_helper);
+
 				GameOver();
 			}
 
@@ -247,6 +250,9 @@ void GameScreen::Update()
 				tube->Update();
 				if (tube->CheckOverlap(m_bird))
 				{
+					if (!this->m_muted)
+						m_buttonTapSFX->Play(this->m_helper);
+
 					GameOver();
 					break;
 				}
